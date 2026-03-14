@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEPEG – Health Economics and Policy Evaluation Group</title>
+  <meta name="description" content="HEPEG is a non-partisan research group focused on rigorous economic analyses and evaluations of health policies and programs.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* === Homepage-specific styles === */
+    .hero-home { padding: 0; border-bottom: none; overflow: hidden; }
+
+    .hero-banner {
+      background: var(--color-ink);
+      color: var(--color-white);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(26,107,90,.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; left: 20%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(196,125,46,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-banner h1 { color: var(--color-white); max-width: 680px; margin-bottom: 1.25rem; }
+    .hero-banner p.lead { max-width: 580px; font-size: 1.1rem; color: rgba(255,255,255,.7); line-height: 1.75; margin-bottom: 2rem; }
+    .hero-banner .section-label { color: rgba(255,255,255,.45); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .7rem 1.5rem; background: transparent;
+      color: rgba(255,255,255,.8); font-family: var(--font-body);
+      font-size: .85rem; font-weight: 600;
+      border: 1px solid rgba(255,255,255,.25); border-radius: 8px;
+      cursor: pointer; transition: all .2s; text-decoration: none;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.5); color: var(--color-white); background: rgba(255,255,255,.06); }
+
+    .stats-bar { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 1.75rem 0; }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+    .stat-item .num { font-family: var(--font-display); font-size: 2rem; color: var(--color-accent); display: block; line-height: 1.2; }
+    .stat-item .label { font-size: .78rem; color: var(--color-muted); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+
+    .announce-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .announce-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.5rem; transition: box-shadow .25s; }
+    .announce-card:hover { box-shadow: 0 8px 30px rgba(26,31,46,.07); }
+    .announce-card .date-label { font-size: .75rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+    .announce-card h3 { font-size: 1.1rem; margin-bottom: .4rem; }
+    .announce-card p { font-size: .9rem; color: var(--color-muted); }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .focus-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .focus-list li { font-size: .88rem; font-weight: 500; color: var(--color-ink); padding: .55rem .85rem; background: var(--color-surface); border-radius: 6px; border-left: 3px solid var(--color-accent); }
+
+    .team-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.25rem; }
+    .team-preview-card { text-align: center; padding: 1.25rem 1rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 10px; transition: box-shadow .25s, transform .25s; }
+    .team-preview-card:hover { box-shadow: 0 6px 20px rgba(26,31,46,.06); transform: translateY(-2px); }
+    .team-preview-card .avatar-sm { width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.1rem; color: var(--color-accent); margin: 0 auto .65rem; }
+    .team-preview-card h4 { font-size: .92rem; margin-bottom: .15rem; }
+    .team-preview-card .role-sm { font-size: .73rem; color: var(--color-muted); line-height: 1.4; }
+
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+      .announce-strip { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .focus-list { grid-template-columns: 1fr; }
+      .team-preview-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">HEPEG<span>.</span></a>
+      <nav class="site-nav" id="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="events.html">Events</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO BANNER ========== -->
+  <section class="hero-home">
+    <div class="hero-banner">
+      <div class="container">
+        <p class="section-label">Health Economics &amp; Policy Evaluation Group</p>
+        <h1>Driving evidence-based decision making in health policy</h1>
+        <p class="lead">We are a non-partisan research organization focused on rigorous economic analyses and evaluations of health policies and programs — from pharmaceutical regulation to health disparities across Europe.</p>
+        <div class="hero-actions">
+          <a href="events.html" class="btn">Upcoming Events →</a>
+          <a href="contact.html" class="btn-outline">Join Our Mailing List</a>
+          <a href="projects.html" class="btn-outline">Explore Projects</a>
+        </div>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-item"><span class="num">11</span><span class="label">Researchers</span></div>
+          <div class="stat-item"><span class="num">3</span><span class="label">Active Projects</span></div>
+          <div class="stat-item"><span class="num">5+</span><span class="label">Institutions</span></div>
+          <div class="stat-item"><span class="num">2</span><span class="label">EU-Funded Grants</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ANNOUNCEMENTS ========== -->
+  <section>
+    <div class="container">
+      <p class="section-label">What's New</p>
+      <h2>Latest Announcements</h2>
+      <div class="announce-strip mt-2">
+        <!--
+          HOW TO ADD A NEW ANNOUNCEMENT:
+          1. Copy one <div class="announce-card"> block
+          2. Paste it at the TOP (newest first)
+          3. Update the date, title, and description
+          4. Remove the oldest one to keep 4 visible max
+        -->
+        <div class="announce-card">
+          <p class="date-label">March 2026</p>
+          <h3>HEPEG Website Launch</h3>
+          <p>We're excited to launch our new website. Subscribe to our mailing list to stay updated on future events and opportunities.</p>
+        </div>
+        <div class="announce-card">
+          <p class="date-label">2024</p>
+          <h3>New Publications</h3>
+          <p>Recent working papers by Montresor &amp; Schiavon on vaccination compliance, and by Righetti on AMNOG pharmaceutical pricing reform in Germany.</p>
+          <a href="publications.html" class="card-link">Read more</a>
+        </div>
+        <div class="announce-card">
+          <p class="date-label">Ongoing</p>
+          <h3>Horizon Europe FLASH</h3>
+          <p>The FLASH project on flexible health financing approaches is actively producing research. Coordinated by Paolo Pertile at UniVR.</p>
+          <a href="https://flash-project.com/" class="card-link" target="_blank">Visit project</a>
+        </div>
+        <div class="announce-card">
+          <p class="date-label">Ongoing</p>
+          <h3>Horizon Europe PCR-4-ALL</h3>
+          <p>Point-of-Care rapid diagnostics project coordinated by Catia Nicodemo. Developing accessible diagnostic technologies across Europe.</p>
+          <a href="https://www.pcr4all.eu/about/" class="card-link" target="_blank">Visit project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT / MISSION ========== -->
+  <section>
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="section-label">About HEPEG</p>
+          <h2>Who We Are</h2>
+          <p class="mt-1">HEPEG's team is comprised of economists, statisticians, and health services researchers based primarily at the University of Verona, with affiliations at Oxford, Ca' Foscari Venice, Insubria, and other European institutions.</p>
+          <p class="mt-1">We organize and highlight events such as workshops, conferences and seminars. We are involved in a number of cutting-edge, long-term projects funded at the European and national level.</p>
+          <p class="mt-1">Our work is driven by the belief that sound economic analysis is essential for designing health policies that are effective, equitable, and sustainable.</p>
+          <a href="team.html" class="card-link mt-2">Meet the full team</a>
+        </div>
+        <div>
+          <p class="section-label" style="margin-top: .5rem;">Core Focus Areas</p>
+          <ul class="focus-list mt-1">
+            <li>Pharmaceutical Policy</li>
+            <li>Health Insurance Reform</li>
+            <li>Health Care Services</li>
+            <li>Value-Based Payment</li>
+            <li>Public Health Interventions</li>
+            <li>Health Disparities</li>
+            <li>Migration &amp; Health</li>
+            <li>Policy Evaluation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED PROJECTS ========== -->
+  <section>
+    <div class="container">
+      <p class="section-label">Research</p>
+      <h2>Featured Projects</h2>
+      <div class="card-grid mt-2">
+        <div class="card">
+          <span class="tag">Horizon Europe</span>
+          <h3>PCR-4-ALL</h3>
+          <p class="meta">Coordinator: Catia Nicodemo</p>
+          <p>Developing Point-of-Care rapid diagnostic technologies to improve access to diagnostics across Europe.</p>
+          <a href="https://www.pcr4all.eu/about/" class="card-link" target="_blank">Learn more</a>
+        </div>
+        <div class="card">
+          <span class="tag">Horizon Europe</span>
+          <h3>FLASH</h3>
+          <p class="meta">Coordinator: Paolo Pertile</p>
+          <p>FLexible Approaches to Support Health through financing — evaluating innovative health financing models.</p>
+          <a href="https://flash-project.com/" class="card-link" target="_blank">Learn more</a>
+        </div>
+        <div class="card">
+          <span class="tag tag--warm">National</span>
+          <h3>iNEST</h3>
+          <p>Interconnected Nord-Est Innovation Ecosystem — a cross-institutional initiative in North-East Italy.</p>
+          <a href="https://www.consorzioinest.it/#inest" class="card-link" target="_blank">Learn more</a>
+        </div>
+      </div>
+      <a href="projects.html" class="card-link mt-2">View all projects</a>
+    </div>
+  </section>
+
+  <!-- ========== TEAM PREVIEW ========== -->
+  <section style="background: var(--color-surface);">
+    <div class="container">
+      <p class="section-label">People</p>
+      <h2>Our Team</h2>
+      <p class="mt-1" style="color: var(--color-muted); max-width: 550px;">An interdisciplinary group across multiple European institutions.</p>
+      <div class="team-preview-grid mt-2">
+        <div class="team-preview-card"><div class="avatar-sm">PB</div><h4>Paola Bertoli</h4><p class="role-sm">Full Professor, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">LB</div><h4>Luigi Boggian</h4><p class="role-sm">Research Fellow, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">AB</div><h4>Alessandro Bucciol</h4><p class="role-sm">Professor, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">GD</div><h4>Giulia De Matteis</h4><p class="role-sm">Jr Research Fellow, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">MM</div><h4>Maurizio Malpede</h4><p class="role-sm">Asst. Professor, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">EM</div><h4>Eleonora Matteazzi</h4><p class="role-sm">Asst. Professor, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">GM</div><h4>Giulia Montresor</h4><p class="role-sm">Postdoc, UniVR</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">CN</div><h4>Catia Nicodemo</h4><p class="role-sm">Assoc. Prof., UniVR & Oxford</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">CO</div><h4>Cristina Elisa Orso</h4><p class="role-sm">Asst. Professor, Insubria</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">LS</div><h4>Lucia Schiavon</h4><p class="role-sm">Postdoc, Ca' Foscari</p></div>
+        <div class="team-preview-card"><div class="avatar-sm">KS</div><h4>Khalid W.A. Shomali</h4><p class="role-sm">Postdoc, UniVR</p></div>
+      </div>
+      <a href="team.html" class="card-link mt-2">Full profiles &amp; bios →</a>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER CTA ========== -->
+  <section>
+    <div class="container">
+      <div class="cta-box" style="background: var(--color-ink); border: none; color: var(--color-white); max-width: 700px;">
+        <p class="section-label" style="color: rgba(255,255,255,.4);">Stay Updated</p>
+        <h2 style="color: var(--color-white);">Join the HEPEG Mailing List</h2>
+        <p style="color: rgba(255,255,255,.6);">Get notified about upcoming events, new publications, and research opportunities. We send updates only when there's something worth sharing.</p>
+        <!-- REPLACE WITH MAILCHIMP FORM -->
+        <form class="cta-form" action="#" method="post">
+          <input type="email" placeholder="Your email address" required style="border-color: rgba(255,255,255,.15); background: rgba(255,255,255,.08); color: var(--color-white);">
+          <button type="submit" class="btn" style="background: var(--color-accent);">Subscribe</button>
+        </form>
+        <p style="font-size: .75rem; color: rgba(255,255,255,.35); margin-top: .75rem;">We respect your privacy. Unsubscribe at any time. GDPR compliant.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="site-logo">HEPEG<span>.</span></div>
+          <p>Health Economics and Policy Evaluation Group. A research organization focused on rigorous economic analyses of health policies.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:healthecon_group@dse.univr.it">healthecon_group@dse.univr.it</a></li>
+            <li><a href="https://www.univr.it" target="_blank">University of Verona</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 HEPEG. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

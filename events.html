@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events – HEPEG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">HEPEG<span>.</span></a>
+      <nav class="site-nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <p class="section-label">Calendar</p>
+      <h1>Events</h1>
+      <p>Workshops, conferences, and seminars organized or featured by HEPEG.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>Upcoming</h2>
+      <div class="mt-2">
+
+        <!--
+          =============================================
+          HOW TO ADD A NEW EVENT:
+          1. Copy one <div class="event-item"> block
+          2. Paste it at the TOP of this section
+          3. Change the date, title, location, description
+          =============================================
+        -->
+
+        <div class="event-item">
+          <div class="event-date">
+            <span class="month">TBA</span>
+            <span class="day">—</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="event-info">
+            <h3>Next HEPEG Workshop</h3>
+            <p class="event-meta">Location TBA</p>
+            <p>Stay tuned — details will be announced via our mailing list. <a href="contact.html">Subscribe here</a>.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Past Events</h2>
+      <div class="mt-2">
+
+        <!--
+          =============================================
+          When an upcoming event passes, move its block
+          here (below "Past Events"). Newest at top.
+          =============================================
+        -->
+
+        <div class="event-item">
+          <div class="event-date">
+            <span class="month">Jun</span>
+            <span class="day">15</span>
+            <span class="year">2024</span>
+          </div>
+          <div class="event-info">
+            <h3>HEPEG Inaugural Workshop</h3>
+            <p class="event-meta">University of Verona, Department of Economics</p>
+            <p>The founding workshop bringing together health economists and policy researchers to establish the group's research agenda.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section style="background: var(--color-surface);">
+    <div class="container">
+      <div class="cta-box" style="background: var(--color-white); border: 1px solid var(--color-border);">
+        <p class="section-label">Don't miss out</p>
+        <h2>Get Event Notifications</h2>
+        <p>Subscribe to the HEPEG mailing list and never miss an event.</p>
+        <!-- REPLACE WITH MAILCHIMP FORM -->
+        <form class="cta-form" action="#" method="post">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="site-logo">HEPEG<span>.</span></div>
+          <p>Health Economics and Policy Evaluation Group.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:healthecon_group@dse.univr.it">healthecon_group@dse.univr.it</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 HEPEG. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

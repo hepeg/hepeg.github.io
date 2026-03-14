@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – HEPEG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">HEPEG<span>.</span></a>
+      <nav class="site-nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h1>Contact Us</h1>
+      <p>Have a question, want to collaborate, or interested in joining HEPEG?</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+
+        <div>
+          <h2>Send a Message</h2>
+          <p style="color: var(--color-muted); margin: .75rem 0 1.5rem;">
+            Fill out the form and we'll get back to you.
+          </p>
+
+          <!--
+            =============================================
+            CONTACT FORM NOTE:
+            Static HTML cannot process form submissions.
+            Options to make this work:
+            1. Use Formspree (https://formspree.io) — free tier
+               Change the action to: action="https://formspree.io/f/YOUR_ID"
+            2. Use Netlify Forms if hosting on Netlify
+               Add: netlify and name="contact" to the <form>
+            3. Replace with a mailto link for simplicity
+            =============================================
+          -->
+          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="contact-info-block">
+            <h3>Contact Information</h3>
+            <p>
+              <strong>Email</strong><br>
+              <a href="mailto:healthecon_group@dse.univr.it">healthecon_group@dse.univr.it</a>
+            </p>
+            <p>
+              <strong>Affiliation</strong><br>
+              Department of Economics<br>
+              University of Verona<br>
+              Verona, Italy
+            </p>
+          </div>
+
+          <div class="contact-info-block mt-2">
+            <h3>Join the Mailing List</h3>
+            <p>Subscribe to receive updates about events, publications, and research opportunities from HEPEG.</p>
+
+            <!--
+              =============================================
+              MAILCHIMP INTEGRATION:
+              Replace this form with your Mailchimp
+              embedded form. Steps:
+              1. Create a free Mailchimp account
+              2. Go to Audience > Signup forms > Embedded forms
+              3. Copy the generated HTML
+              4. Paste it here, replacing the form below
+              =============================================
+            -->
+            <form class="cta-form" action="#" method="post" style="justify-content: flex-start;">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+            <p style="font-size: .75rem; color: var(--color-muted); margin-top: .5rem;">
+              We respect your privacy. Unsubscribe at any time. GDPR compliant.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="site-logo">HEPEG<span>.</span></div>
+          <p>Health Economics and Policy Evaluation Group.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:healthecon_group@dse.univr.it">healthecon_group@dse.univr.it</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 HEPEG. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
