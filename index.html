@@ -15,7 +15,7 @@
     .hero-banner {
       background: var(--color-ink);
       color: var(--color-white);
-      padding: 5rem 0 2rem;
+      padding: 2rem 0 2rem;
       position: relative;
       overflow: hidden;
     }
@@ -118,6 +118,8 @@
       .hero-actions { flex-direction: column; }
       .hero-split { grid-template-columns: 1fr; gap: 1.25rem; }
       .hero-divider { width: 60px; height: 1px; min-height: 0; }
+      .hero-left { flex-direction: column !important; text-align: center; }
+      .hero-left img { height: 70px !important; }
     }
   </style>
 </head>
@@ -144,9 +146,9 @@
   <section class="hero-home">
     <div class="hero-banner">
       <div class="container">
-        <img src="images/logo.png" alt="HEPEG" style="height: 70px; width: auto; margin-bottom: 1.5rem; border-radius: 6px;">
         <div class="hero-split">
-          <div class="hero-left">
+          <div class="hero-left" style="display: flex; align-items: center; gap: 1.5rem;">
+            <img src="images/tree.png" alt="" style="height: 120px; width: auto; flex-shrink: 0; opacity: .9;">
             <h1 id="hero-headline">Where health policy meets rigorous economics</h1>
           </div>
           <div class="hero-divider"></div>
