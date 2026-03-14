@@ -84,10 +84,10 @@ section + section {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.92);
+  background: rgba(30,35,48,.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: none;
 }
 
 .site-header .container {
@@ -103,11 +103,11 @@ section + section {
   gap: .5rem;
   font-family: var(--font-display);
   font-size: 1.35rem;
-  color: var(--color-ink);
+  color: var(--color-white);
   letter-spacing: -.01em;
   text-decoration: none;
 }
-.site-logo span { color: var(--color-accent); }
+.site-logo span { color: rgba(255,255,255,.4); }
 .site-logo img {
   height: 32px;
   width: auto;
@@ -119,22 +119,22 @@ section + section {
 .site-nav a {
   font-size: .85rem;
   font-weight: 500;
-  color: var(--color-muted);
+  color: rgba(255,255,255,.6);
   padding: .5rem .9rem;
   border-radius: 6px;
   transition: color .2s, background .2s, transform .15s;
 }
 .site-nav a:hover,
 .site-nav a.active {
-  color: var(--color-accent);
-  background: var(--color-accent-light);
+  color: var(--color-warm);
+  background: rgba(255,255,255,.07);
   transform: translateY(-1px);
 }
 
 /* Hamburger */
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .5rem; }
 .nav-toggle span {
-  display: block; width: 22px; height: 2px; background: var(--color-ink);
+  display: block; width: 22px; height: 2px; background: rgba(255,255,255,.7);
   margin: 5px 0; transition: .3s;
 }
 
@@ -551,8 +551,8 @@ section + section {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--color-ink);
+    border-bottom: 1px solid rgba(255,255,255,.1);
     padding: 1rem;
     box-shadow: 0 12px 24px rgba(0,0,0,.08);
   }
