@@ -55,18 +55,24 @@
     }
     .hero-right { }
 
-    .hero-actions { display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: flex-start; }
-    .hero-actions .btn { padding: .85rem 1.75rem; font-size: .95rem; }
+    .hero-actions { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .hero-actions a { flex: 1; text-align: center; min-width: 0; }
 
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .85rem 1.75rem; background: transparent;
+    .hero-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: .85rem 1.75rem; background: var(--color-ink);
       color: rgba(255,255,255,.85); font-family: var(--font-body);
       font-size: .95rem; font-weight: 600;
-      border: 1px solid rgba(255,255,255,.25); border-radius: 8px;
-      cursor: pointer; transition: all .2s; text-decoration: none;
+      border: 1px solid rgba(255,255,255,.15); border-radius: 8px;
+      cursor: pointer; transition: all .25s; text-decoration: none;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,.5); color: var(--color-white); background: rgba(255,255,255,.06); }
+    .hero-btn:hover {
+      background: var(--color-warm);
+      border-color: var(--color-warm);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(209,122,42,.35);
+    }
 
     .stats-bar { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 1.75rem 0; }
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
@@ -129,17 +135,17 @@
         <img src="images/logo.png" alt="HEPEG" style="height: 70px; width: auto; margin-bottom: 1.5rem; border-radius: 6px;">
         <div class="hero-split">
           <div class="hero-left">
-            <h1>Driving evidence-based decision making in health policy</h1>
+            <h1 id="hero-headline">Where health policy meets rigorous economics</h1>
           </div>
           <div class="hero-divider"></div>
           <div class="hero-right">
-            <p class="lead">We are a non-partisan research organization focused on rigorous economic analyses and evaluations of health policies and programs &mdash; from pharmaceutical regulation to health disparities across Europe.</p>
+            <p class="lead">We evaluate pharmaceutical regulations, study health disparities, and analyse financing models &mdash; partnering across five European institutions to produce research that informs real policy decisions.</p>
           </div>
         </div>
         <div class="hero-actions">
-          <a href="events.html" class="btn">Upcoming Events &rarr;</a>
-          <a href="contact.html" class="btn-outline">Join Our Mailing List</a>
-          <a href="projects.html" class="btn-outline">Explore Projects</a>
+          <a href="events.html" class="hero-btn">Upcoming Events</a>
+          <a href="contact.html" class="hero-btn">Join Our Mailing List</a>
+          <a href="projects.html" class="hero-btn">Explore Projects</a>
         </div>
       </div>
     </div>
@@ -255,6 +261,20 @@
   </section>
 
   <script>
+    // Random headline on each page load
+    // =============================================
+    // HOW TO ADD A NEW HEADLINE:
+    // Just add a new string to the array below
+    // =============================================
+    (function() {
+      var headlines = [
+        'Where health policy meets rigorous economics',
+        'Asking the hard questions about health systems'
+      ];
+      var h = document.getElementById('hero-headline');
+      h.textContent = headlines[Math.floor(Math.random() * headlines.length)];
+    })();
+
     // Show 5 random team members + "and others" card
     (function() {
       var grid = document.getElementById('team-grid');
