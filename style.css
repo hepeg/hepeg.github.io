@@ -1,5 +1,5 @@
 /* ============================================
-   HEPEG â€“ Health Economics and Policy Evaluation Group
+   HEPEG – Health Economics and Policy Evaluation Group
    Shared Stylesheet
    ============================================ */
 
@@ -246,7 +246,7 @@ section + section {
   color: var(--color-accent);
   transition: color .2s, gap .2s;
 }
-.card-link::after { content: 'â†’'; transition: transform .2s; }
+.card-link::after { content: '\2192'; transition: transform .2s; }
 .card-link:hover { color: var(--color-accent-dark); gap: .5rem; }
 .card-link:hover::after { transform: translateX(3px); }
 
