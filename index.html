@@ -74,10 +74,10 @@
       box-shadow: 0 4px 16px rgba(209,122,42,.35);
     }
 
-    .stats-bar { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 1.75rem 0; }
+    .stats-bar { background: var(--color-ink); border-bottom: 1px solid var(--color-border); padding: 2.5rem 0; }
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
-    .stat-item .num { font-family: var(--font-display); font-size: 2rem; color: var(--color-warm); display: block; line-height: 1.2; }
-    .stat-item .label { font-size: .78rem; color: var(--color-muted); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+    .stat-item .num { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 4.5rem); color: var(--color-warm); display: block; line-height: 1; margin-bottom: .25rem; }
+    .stat-item .label { font-size: .72rem; color: rgba(255,255,255,.5); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; }
 
     .announce-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .announce-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.5rem; transition: box-shadow .25s; }
@@ -152,10 +152,10 @@
     <div class="stats-bar">
       <div class="container">
         <div class="stats-row">
-          <div class="stat-item"><span class="num">11</span><span class="label">Researchers</span></div>
-          <div class="stat-item"><span class="num">3</span><span class="label">Active Projects</span></div>
-          <div class="stat-item"><span class="num">5+</span><span class="label">Institutions</span></div>
-          <div class="stat-item"><span class="num">2</span><span class="label">EU-Funded Grants</span></div>
+          <div class="stat-item"><span class="num" data-count="11" data-suffix="">0</span><span class="label">Researchers</span></div>
+          <div class="stat-item"><span class="num" data-count="3" data-suffix="">0</span><span class="label">Active Projects</span></div>
+          <div class="stat-item"><span class="num" data-count="5" data-suffix="+">0</span><span class="label">Institutions</span></div>
+          <div class="stat-item"><span class="num" data-count="2" data-suffix="">0</span><span class="label">EU-Funded Grants</span></div>
         </div>
       </div>
     </div>
@@ -261,6 +261,33 @@
   </section>
 
   <script>
+    // Count-up animation for stats
+    (function() {
+      var nums = document.querySelectorAll('.num[data-count]');
+      nums.forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-count'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1200;
+        var start = 0;
+        var startTime = null;
+
+        function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var current = Math.floor(ease(progress) * target);
+          el.textContent = current + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target + suffix;
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    })();
+
     // Random headline on each page load
     // =============================================
     // HOW TO ADD A NEW HEADLINE:
