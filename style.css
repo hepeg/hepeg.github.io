@@ -1,5 +1,5 @@
 /* ============================================
-   HEPEG – Health Economics and Policy Evaluation Group
+   HEPEG â€“ Health Economics and Policy Evaluation Group
    Shared Stylesheet
    ============================================ */
 
@@ -7,17 +7,18 @@
 
 /* --- Variables --- */
 :root {
-  --color-ink: #1a1f2e;
+  --color-ink: #1e2330;
   --color-body: #3d4155;
   --color-muted: #6b7089;
-  --color-border: #d8dae5;
-  --color-surface: #f4f5f9;
-  --color-white: #ffffff;
+  --color-border: #ddd9d3;
+  --color-surface: #f0ece6;
+  --color-white: #faf8f5;
   --color-accent: #1a6b5a;
-  --color-accent-light: #e8f4f0;
+  --color-accent-light: #e6f2ee;
   --color-accent-dark: #134d41;
-  --color-warm: #c47d2e;
-  --color-warm-light: #faf3ea;
+  --color-warm: #d17a2a;
+  --color-warm-light: #faf0e4;
+  --color-warm-dark: #b5651d;
 
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
@@ -34,16 +35,16 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: var(--color-body);
   background: var(--color-white);
   -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--color-accent); text-decoration: none; transition: color .2s; }
-a:hover { color: var(--color-accent-dark); }
+a { color: var(--color-accent); text-decoration: none; transition: color .2s, text-decoration-color .2s; }
+a:hover { color: var(--color-accent-dark); text-decoration: underline; text-decoration-color: rgba(26,107,90,.3); text-underline-offset: 3px; }
 
 /* --- Typography --- */
 h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-ink); font-weight: 400; line-height: 1.25; }
@@ -58,7 +59,7 @@ h4 { font-size: 1.1rem; }
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-warm);
   margin-bottom: .5rem;
 }
 
@@ -97,12 +98,21 @@ section + section {
 }
 
 .site-logo {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
   font-family: var(--font-display);
   font-size: 1.35rem;
   color: var(--color-ink);
   letter-spacing: -.01em;
+  text-decoration: none;
 }
 .site-logo span { color: var(--color-accent); }
+.site-logo img {
+  height: 32px;
+  width: auto;
+  border-radius: 4px;
+}
 
 .site-nav { display: flex; gap: 0; align-items: center; }
 
@@ -112,12 +122,13 @@ section + section {
   color: var(--color-muted);
   padding: .5rem .9rem;
   border-radius: 6px;
-  transition: color .2s, background .2s;
+  transition: color .2s, background .2s, transform .15s;
 }
 .site-nav a:hover,
 .site-nav a.active {
   color: var(--color-accent);
   background: var(--color-accent-light);
+  transform: translateY(-1px);
 }
 
 /* Hamburger */
@@ -165,7 +176,7 @@ section + section {
 .hero-stat .num {
   font-family: var(--font-display);
   font-size: 2.2rem;
-  color: var(--color-accent);
+  color: var(--color-warm);
   display: block;
   line-height: 1.2;
 }
@@ -188,8 +199,9 @@ section + section {
 }
 
 .card:hover {
-  box-shadow: 0 8px 30px rgba(26,31,46,.07);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(26,31,46,.1);
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
 }
 
 .card-grid {
@@ -232,8 +244,10 @@ section + section {
   font-weight: 500;
   margin-top: .75rem;
   color: var(--color-accent);
+  transition: color .2s, gap .2s;
 }
-.card-link::after { content: '→'; transition: transform .2s; }
+.card-link::after { content: 'â†’'; transition: transform .2s; }
+.card-link:hover { color: var(--color-accent-dark); gap: .5rem; }
 .card-link:hover::after { transform: translateX(3px); }
 
 /* --- Team Grid --- */
@@ -255,7 +269,8 @@ section + section {
 }
 
 .team-card:hover {
-  box-shadow: 0 8px 30px rgba(26,31,46,.07);
+  box-shadow: 0 12px 36px rgba(26,31,46,.1);
+  border-color: var(--color-accent);
 }
 
 .team-card .avatar {
@@ -307,7 +322,7 @@ section + section {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--color-accent);
+  color: var(--color-warm);
 }
 
 .event-date .day {
@@ -424,7 +439,8 @@ section + section {
 .btn:hover {
   background: var(--color-accent-dark);
   color: var(--color-white);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(26,107,90,.3);
 }
 
 /* --- Contact --- */
