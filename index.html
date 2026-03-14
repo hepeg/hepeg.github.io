@@ -50,13 +50,13 @@
 
     .stats-bar { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 1.75rem 0; }
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
-    .stat-item .num { font-family: var(--font-display); font-size: 2rem; color: var(--color-accent); display: block; line-height: 1.2; }
+    .stat-item .num { font-family: var(--font-display); font-size: 2rem; color: var(--color-warm); display: block; line-height: 1.2; }
     .stat-item .label { font-size: .78rem; color: var(--color-muted); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
 
     .announce-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .announce-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.5rem; transition: box-shadow .25s; }
     .announce-card:hover { box-shadow: 0 8px 30px rgba(26,31,46,.07); }
-    .announce-card .date-label { font-size: .75rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+    .announce-card .date-label { font-size: .75rem; font-weight: 600; color: var(--color-warm); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
     .announce-card h3 { font-size: 1.1rem; margin-bottom: .4rem; }
     .announce-card p { font-size: .9rem; color: var(--color-muted); }
 
@@ -85,7 +85,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="site-logo">HEPEG<span>.</span></a>
+      <a href="index.html" class="site-logo"><img src="images/logo.png" alt="HEPEG"></a>
       <nav class="site-nav" id="nav">
         <a href="index.html" class="active">Home</a>
         <a href="events.html">Events</a>
@@ -104,6 +104,7 @@
   <section class="hero-home">
     <div class="hero-banner">
       <div class="container">
+        <img src="images/logo.png" alt="HEPEG" style="height: 70px; width: auto; margin-bottom: 1.5rem; border-radius: 6px;">
         <p class="section-label">Health Economics &amp; Policy Evaluation Group</p>
         <h1>Driving evidence-based decision making in health policy</h1>
         <p class="lead">We are a non-partisan research organization focused on rigorous economic analyses and evaluations of health policies and programs — from pharmaceutical regulation to health disparities across Europe.</p>
@@ -168,30 +169,13 @@
 
   <!-- ========== ABOUT / MISSION ========== -->
   <section>
-    <div class="container">
-      <div class="about-grid">
-        <div>
-          <p class="section-label">About HEPEG</p>
-          <h2>Who We Are</h2>
-          <p class="mt-1">HEPEG's team is comprised of economists, statisticians, and health services researchers based primarily at the University of Verona, with affiliations at Oxford, Ca' Foscari Venice, Insubria, and other European institutions.</p>
-          <p class="mt-1">We organize and highlight events such as workshops, conferences and seminars. We are involved in a number of cutting-edge, long-term projects funded at the European and national level.</p>
-          <p class="mt-1">Our work is driven by the belief that sound economic analysis is essential for designing health policies that are effective, equitable, and sustainable.</p>
-          <a href="team.html" class="card-link mt-2">Meet the full team</a>
-        </div>
-        <div>
-          <p class="section-label" style="margin-top: .5rem;">Core Focus Areas</p>
-          <ul class="focus-list mt-1">
-            <li>Pharmaceutical Policy</li>
-            <li>Health Insurance Reform</li>
-            <li>Health Care Services</li>
-            <li>Value-Based Payment</li>
-            <li>Public Health Interventions</li>
-            <li>Health Disparities</li>
-            <li>Migration &amp; Health</li>
-            <li>Policy Evaluation</li>
-          </ul>
-        </div>
-      </div>
+    <div class="container" style="max-width: 750px;">
+      <p class="section-label">About HEPEG</p>
+      <h2>Who We Are</h2>
+      <p class="mt-1">HEPEG's team is comprised of economists, statisticians, and health services researchers based primarily at the University of Verona, with affiliations at Oxford, Ca' Foscari Venice, Insubria, and other European institutions.</p>
+      <p class="mt-1">We organize and highlight events such as workshops, conferences and seminars. We are involved in a number of cutting-edge, long-term projects funded at the European and national level.</p>
+      <p class="mt-1">Our work is driven by the belief that sound economic analysis is essential for designing health policies that are effective, equitable, and sustainable.</p>
+      <a href="team.html" class="card-link mt-2">Meet the full team</a>
     </div>
   </section>
 
@@ -232,22 +216,49 @@
       <p class="section-label">People</p>
       <h2>Our Team</h2>
       <p class="mt-1" style="color: var(--color-muted); max-width: 550px;">An interdisciplinary group across multiple European institutions.</p>
-      <div class="team-preview-grid mt-2">
-        <div class="team-preview-card"><div class="avatar-sm">PB</div><h4>Paola Bertoli</h4><p class="role-sm">Full Professor, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">LB</div><h4>Luigi Boggian</h4><p class="role-sm">Research Fellow, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">AB</div><h4>Alessandro Bucciol</h4><p class="role-sm">Professor, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">GD</div><h4>Giulia De Matteis</h4><p class="role-sm">Jr Research Fellow, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">MM</div><h4>Maurizio Malpede</h4><p class="role-sm">Asst. Professor, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">EM</div><h4>Eleonora Matteazzi</h4><p class="role-sm">Asst. Professor, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">GM</div><h4>Giulia Montresor</h4><p class="role-sm">Postdoc, UniVR</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">CN</div><h4>Catia Nicodemo</h4><p class="role-sm">Assoc. Prof., UniVR & Oxford</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">CO</div><h4>Cristina Elisa Orso</h4><p class="role-sm">Asst. Professor, Insubria</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">LS</div><h4>Lucia Schiavon</h4><p class="role-sm">Postdoc, Ca' Foscari</p></div>
-        <div class="team-preview-card"><div class="avatar-sm">KS</div><h4>Khalid W.A. Shomali</h4><p class="role-sm">Postdoc, UniVR</p></div>
+      <div class="team-preview-grid mt-2" id="team-grid">
+        <div class="team-preview-card" data-member><div class="avatar-sm">PB</div><h4>Paola Bertoli</h4><p class="role-sm">Full Professor, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">LB</div><h4>Luigi Boggian</h4><p class="role-sm">Research Fellow, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">AB</div><h4>Alessandro Bucciol</h4><p class="role-sm">Professor, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">GD</div><h4>Giulia De Matteis</h4><p class="role-sm">Jr Research Fellow, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">MM</div><h4>Maurizio Malpede</h4><p class="role-sm">Asst. Professor, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">EM</div><h4>Eleonora Matteazzi</h4><p class="role-sm">Asst. Professor, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">GM</div><h4>Giulia Montresor</h4><p class="role-sm">Postdoc, UniVR</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">CN</div><h4>Catia Nicodemo</h4><p class="role-sm">Assoc. Prof., UniVR & Oxford</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">CO</div><h4>Cristina Elisa Orso</h4><p class="role-sm">Asst. Professor, Insubria</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">LS</div><h4>Lucia Schiavon</h4><p class="role-sm">Postdoc, Ca' Foscari</p></div>
+        <div class="team-preview-card" data-member><div class="avatar-sm">KS</div><h4>Khalid W.A. Shomali</h4><p class="role-sm">Postdoc, UniVR</p></div>
+        <!-- "And others" card — always shown last -->
+        <a href="team.html" class="team-preview-card" id="and-others" style="text-decoration:none; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--color-accent-light); border-style:dashed; cursor:pointer;">
+          <div class="avatar-sm" style="background:var(--color-accent); color:var(--color-white); font-size:1.2rem;">+</div>
+          <h4 style="color:var(--color-accent);">And others...</h4>
+          <p class="role-sm">Meet the full team</p>
+        </a>
       </div>
-      <a href="team.html" class="card-link mt-2">Full profiles &amp; bios →</a>
     </div>
   </section>
+
+  <script>
+    // Show 5 random team members + "and others" card
+    (function() {
+      var grid = document.getElementById('team-grid');
+      var cards = Array.from(grid.querySelectorAll('[data-member]'));
+      var othersCard = document.getElementById('and-others');
+      // Shuffle using Fisher-Yates
+      for (var i = cards.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = cards[i]; cards[i] = cards[j]; cards[j] = temp;
+      }
+      // Hide all member cards
+      cards.forEach(function(c) { c.style.display = 'none'; });
+      // Show first 5 in shuffled order
+      cards.slice(0, 5).forEach(function(c) { c.style.display = ''; });
+      // Re-append visible cards + "and others" last
+      grid.innerHTML = '';
+      cards.slice(0, 5).forEach(function(c) { grid.appendChild(c); });
+      grid.appendChild(othersCard);
+    })();
+  </script>
 
   <!-- ========== NEWSLETTER CTA ========== -->
   <section>
@@ -276,11 +287,21 @@
     </div>
   </section>
 
+  <!-- ========== JOIN THE TEAM (subtle) ========== -->
+  <section style="padding: 2.5rem 0; border-top: 1px solid var(--color-border);">
+    <div class="container" style="max-width: 650px; text-align: center;">
+      <p style="color: var(--color-muted); font-size: .9rem;">
+        Are you a researcher interested in joining HEPEG?
+        <a href="members.html" style="font-weight: 600;">Submit your profile here</a>
+      </p>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="site-logo">HEPEG<span>.</span></div>
+          <div class="site-logo"><img src="images/logo.png" alt="HEPEG" style="height:40px;"></div>
           <p>Health Economics and Policy Evaluation Group. A research organization focused on rigorous economic analyses of health policies.</p>
         </div>
         <div>
