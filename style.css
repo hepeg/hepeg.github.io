@@ -120,7 +120,7 @@ section + section {
   font-size: .85rem;
   font-weight: 500;
   color: rgba(255,255,255,.8);
-  padding: .5rem 1.3rem;
+  padding: .5rem 1.8rem;
   border-radius: 6px;
   transition: color .2s, background .2s, transform .15s;
 }
