@@ -8,16 +8,10 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
   <style>
     /* === Homepage-specific styles === */
     .hero-home { padding: 0; border-bottom: none; overflow: hidden; background: var(--color-ink); position: relative; }
-
-    .hero-bg-tree {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-      opacity: .12;
-    }
 
     .hero-banner {
       background: transparent;
@@ -28,11 +22,14 @@
     }
     .hero-banner h1 { color: var(--color-white); margin-bottom: 0; font-size: clamp(1.7rem, 3vw, 2.4rem); }
     .hero-banner p.lead {
+      font-family: 'Fraunces', serif;
       font-size: 1.15rem;
       color: rgba(255,255,255,.9);
-      line-height: 1.8;
+      line-height: 1.85;
       margin: 0;
       max-width: none;
+      word-spacing: 0.12em;
+      letter-spacing: 0.01em;
     }
 
     .hero-split {
@@ -104,7 +101,7 @@
       padding: .85rem 1.75rem; background: var(--color-ink);
       color: rgba(255,255,255,.95); font-family: var(--font-body);
       font-size: .95rem; font-weight: 600;
-      border: 1px solid rgba(255,255,255,.15); border-radius: 8px;
+      border: 1px solid var(--color-warm); border-radius: 8px;
       cursor: pointer; transition: all .25s; text-decoration: none;
     }
     .hero-btn:hover {
@@ -150,7 +147,6 @@
       .hero-left { justify-content: center; }
       .hero-left img { height: 60px !important; }
       .hero-right { text-align: center; justify-content: center; }
-      .hero-bg-tree { opacity: .07; }
       .hero-description { text-align: center; }
     }
   </style>
@@ -175,7 +171,6 @@
 
   <!-- ========== HERO BANNER ========== -->
   <section class="hero-home">
-    <img src="images/tree.png" alt="" class="hero-bg-tree" id="bg-tree">
     <div class="hero-banner">
       <div class="container">
         <div class="hero-split">
@@ -309,32 +304,6 @@
   </section>
 
   <script>
-    // Position background tree: center at top-right of "Explore Projects", base at bottom of dark area
-    (function() {
-      function positionTree() {
-        var btn = document.getElementById('explore-btn');
-        var tree = document.getElementById('bg-tree');
-        var section = tree.parentElement;
-        if (!btn || !tree) return;
-        var btnRect = btn.getBoundingClientRect();
-        var sectionRect = section.getBoundingClientRect();
-        // Center point: top-right corner of Explore Projects button
-        var centerX = btnRect.right - sectionRect.left;
-        var centerY = btnRect.top - sectionRect.top;
-        // Bottom of tree = bottom of dark section
-        var sectionBottom = sectionRect.height;
-        // Tree height: distance from center to bottom, times 2
-        var treeH = (sectionBottom - centerY) * 2;
-        var treeW = treeH * (tree.naturalWidth / tree.naturalHeight || 0.86);
-        tree.style.height = treeH + 'px';
-        tree.style.width = treeW + 'px';
-        tree.style.left = (centerX - treeW / 2) + 'px';
-        tree.style.top = (centerY - treeH / 2) + 'px';
-      }
-      window.addEventListener('load', positionTree);
-      window.addEventListener('resize', positionTree);
-    })();
-
     // Count-up animation for stats
     (function() {
       var nums = document.querySelectorAll('.num[data-count]');
