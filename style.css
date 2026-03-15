@@ -38,7 +38,7 @@ body {
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--color-body);
-  background: var(--color-white);
+  background: var(--color-surface);
   -webkit-font-smoothing: antialiased;
 }
 
